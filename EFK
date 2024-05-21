@@ -1,0 +1,51 @@
+create namespace efk-monitoring
+kubectl create ns efk-monitoring
+
+helm repo add elastic https://helm.elastic.co
+helm repo list
+helm repo update
+helm install elasticsearch elastic/elasticsearch --version 7.17.3 -n efk-monitoring --set replicas=1
+kubectl get all -n efk-monitoring
+helm list -A
+helm install kibana elastic/kibana --version 7.17.3 -n efk-monitoring
+
+kubectl get all -n efk-monitoring
+ 1196  kubectl edit service/kibana-kibana -n efk-monitoring
+change clusterip to loadbalaner
+
+
+cd udmonitoring
+mkdir udmonitoring
+cd udmonitoring/
+git clone https://github.com/itocean/EFK.git
+clear
+ 1210  vim fluentd-config-map.yaml
+ 1211  kubectl get configmap -n kube-system
+ 1212  kubectl apply -f fluentd-config-map.yaml
+ 1213  kubectl get configmap -n kube-system
+ 1214  vim fluentd-rbac.yaml
+ 1215  kubectl apply -f fluentd-rbac.yaml
+ 1216  kubectl get pod -n kube-system
+ 1217  kubectl logs -f fluentd-7j8cf -n kube-system
+
+access kibana through LB or nodeport
+explore on own
+click menu 3 lines go to management under management stack management - kibana - under kibana index pattern - * - timefield timestamp - create index pattern
+go back 3 lines - discover 
+
+field
+Kubernetes-namespace-name
+you can view the namespaces in the cluster
+Kubernetes.pod.name
+log
+
+to see log of a particular pod
+add filter - field name Kubernetes.pod_name operator is - is one of 
+
+add filter -field name Kubernetes.namespace_name operator is - is one of 
+
+
+azure cluster - we have insights to monitor the cluster.
+
+
+curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/kovaionai/;s/{{region_name}}/ap-south-1/" | kubectl apply -f -
