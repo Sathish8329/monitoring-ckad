@@ -34,3 +34,16 @@ spec:
       image:   #dockerimage in the docker hub
 
 apiversion, kind, metadata are parents which starts from the beginning, name lable are siblings need to have space from the parent and should be straight one another and child is apps, type that need to have some space from the sibligs.
+kubectl get pod <pod-name> -o yaml > pod-definition.yaml
+kubectl edit pod <pod-name> command. Please note that only the properties listed below are editable.
+
+spec.containers[*].image
+
+spec.initContainers[*].image
+
+spec.activeDeadlineSeconds
+
+spec.tolerations
+
+spec.terminationGracePeriodSeconds
+
