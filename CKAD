@@ -20,3 +20,17 @@ runspec
 ctr
 nerdcli
 crictl
+
+apiVersion: v1   - string value
+kind: Pod  -  string value
+metadata:
+  name:     #dictornary on the whole which include name, lable, apps, type
+  lable:
+    apps:  #dictory of lable
+    type:
+spec:
+  container:  #array/list
+    - name:   #- indicates first
+      image:   #dockerimage in the docker hub
+
+apiversion, kind, metadata are parents which starts from the beginning, name lable are siblings need to have space from the parent and should be straight one another and child is apps, type that need to have some space from the sibligs.
