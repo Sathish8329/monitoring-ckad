@@ -2,3 +2,4 @@ apiVersion: v1 # pod
 apiVersion: v1 # ReplicaController
 apiVersion: apps/v1 # ReplicaSet
 apiVersion: apps/v1 # Deployment
+apiVersion: v1 #namespace
