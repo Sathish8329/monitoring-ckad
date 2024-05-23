@@ -1,0 +1,3 @@
+apiVersion: v1 # pod
+apiVersion: v1 # ReplicaController
+apiVersion: apps/v1 # ReplicaSet
