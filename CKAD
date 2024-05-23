@@ -47,3 +47,5 @@ spec.tolerations
 
 spec.terminationGracePeriodSeconds
 
+REPLICATION CONTROLLERS:
+ReplicatSet
