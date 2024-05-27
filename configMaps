@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test
+data:
+  TEST: "123"
+  ABC: "456"
+
+
+kubectl create configmap test --from-literal=TEST=123 --from-literal=ABC=456
+kubectl create configmap test --from-file=path/of/file
+
+confimaps are used to set variables 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-test
+
+spec:
+  containers:
+   - name: test-container
+     image: test123
+   env:
+     - name: test-colour
+       valueFrom:
+          configMapKeyRef:
+                name: test
+                key: "TEST"
+         
+      
