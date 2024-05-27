@@ -26,6 +26,6 @@ spec:
        valueFrom:
           configMapKeyRef:
                 name: test
-                key: "TEST"
+                key: TEST
          
       
