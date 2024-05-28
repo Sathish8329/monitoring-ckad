@@ -1,0 +1,5 @@
+kubectl run my-pod --image=nginx --dry-run=client -o yaml > my-pod.yaml
+
+kubectl create deployment my-deployment --image=nginx --dry-run=client -o yaml > my-deployment.yaml
+kubectl create configmap my-config --from-literal=key1=value1 --dry-run=client -o yaml > my-config.yaml
+kubectl create secret generic my-secret --from-literal=username=myuser --from-literal=password=mypassword --dry-run=client -o yaml > my-secret.yaml
