@@ -1,0 +1,20 @@
+containers are not istolated from host, both share same kernel, isolated using namespaces.  All processes in the container run in the host itself in their own namespace.  
+
+docker run ubuntu sleep 3600
+you will see user root but sleep 3600 and docker in different pid ie process id
+ps aux
+
+by default docker run root user, it will run as a root user.
+
+docker run --user=1000 ubuntu sleep 3600
+now it will run in the user named 1000
+or you can run like
+FROM UBUNTU
+USER 1000
+
+
+docker run --cap-add MAC_ADMIN ubuntu - to add previlages to the user
+docker run --cap-drop MAC_ADMIN ubuntu - t0 drop previlates to the user
+  docker run --privileged ubuntu - for alll privileges.
+
+  
