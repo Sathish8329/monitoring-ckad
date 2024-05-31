@@ -1,0 +1,18 @@
+containers will override the pod if both are give security continex to users.  
+we can add user to containers and capabilities but for pod only user can be added.
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+spec:
+  securityContext:
+  runAsUser: 1000
+  containers:
+   - name: ubuntu
+     image: ubuntu
+     command: ["sleep", "3600"]
+     capabilities:
+        add: ["MAC_ADMIN"]
