@@ -1,1 +1,19 @@
 the resource requirement is set the limits cpu and memory for a container.
+
+apiVersion: v1
+kind: Pod
+metadata:
+name: simple-webapp-color
+labels:
+name: simple-webapp-color
+spec:
+containers:
+- name: simple-webapp-color
+image: simple-webapp-color
+ports:
+- containerPort: 8080
+pod-definition.yaml
+resources:
+requests:
+memory: "1Gi"
+cpu: 1
