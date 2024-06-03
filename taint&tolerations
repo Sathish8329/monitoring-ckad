@@ -1,0 +1,18 @@
+we can taint the node and add tolerations to pod.  
+
+kubectl taint nodes <node-name> key=value:taint-effect
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+spec:
+  containers:
+  - name: example-container
+    image: nginx
+  tolerations:
+  - key: "key"
+    operator: "Equal"
+    value: "value"
+    effect: "NoSchedule"
