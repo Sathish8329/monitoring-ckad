@@ -1,0 +1,5 @@
+label the node and configure in the yaml so the pod goes to the repsective nodeselector
+
+taint we can taint the node and make the only the toleration written in the pods gets deployed.
+
+nodeaffinity makes pod to get specifically deploy in the particular node like node selector.  Combination of taint and nodeselector makes only the particular pod and not allow other pods to deploy in the particular node.
