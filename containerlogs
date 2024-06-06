@@ -1,0 +1,4 @@
+to get logs of a container running single container in a pod
+kubectl logs -f podname
+for multicontainer
+kubectl logs -f podname containername
