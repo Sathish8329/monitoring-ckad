@@ -1,0 +1,39 @@
+rediness probe checks whether the pod is ready to accept traffic.  It check the application whether its up and running through httpget, tcp, or command using exec.  This way traffic is only served when the app is running and pod is ready to accept traffic
+livinessprobe checks whether the container is ready to accept traffic and if its crashed or any bugs due to which the app is not ready, it marks the pod as unhealthy and restarts the pod.
+
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+
+    readinessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/ready
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      failureThreshold: 3
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-tcp
+spec:
+  containers:
+  - name: myapp
+    image: myapp:latest
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+      failureThreshold: 3
