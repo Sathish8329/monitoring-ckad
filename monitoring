@@ -1,0 +1,8 @@
+metric server
+
+it stores logs in the cluster and not in the disk
+kubelet has cadvisor that is container advisor which collects datas or logs and sends to metric server
+
+kubectl apply -f kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl top nodes
+kubectl top pod
