@@ -1,0 +1,8 @@
+kubectl create -f deployment.yaml to create a deployment
+kubectl get deployment to see the deployments
+kubectl apply -f deployment.yaml to update a deployment
+kubectl set image deployment/myapp-deployment nginx=nginx:1
+kubectl rollout status deployment/myapp - to see the status .
+kubectl rollout history deployment/myapp - see the history of rollout in deployment
+kubectl rollout undo deployment/myapp - to go to the prevous version.
+ 
