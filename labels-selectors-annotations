@@ -1,1 +1,7 @@
-labels and selectors are use
+labels and selectors are used to match their respective objects
+
+kubectl get pods --selectors env=app
+kubectl get pods -L app
+kubectl get pods --selector env=app,tier=function
+
+annotation is an information or decorations.  
