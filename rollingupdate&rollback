@@ -17,3 +17,9 @@ kubectl rollout undo deployment/myapp - to go to the prevous version.
 
 Use RollingUpdate for applications that can handle zero-downtime updates, where it is acceptable for old and new versions to coexist temporarily.
 Use Recreate for applications where it is crucial to ensure that only one version of the application is running at any time, even at the cost of temporary downtime.
+
+rolling update
+kubectl set image deployment/my-deployment mycontainer=myimage:v3
+
+rollbacks
+kubectl rollout undo deployment/my-deployment
