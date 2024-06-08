@@ -5,3 +5,4 @@ apiVersion: apps/v1 # Deployment
 apiVersion: v1 #namespace
 apiVersion: v1 #ResourceQuota
 apiVersion: v1 #configmap
+apiVersion: batch/v1
