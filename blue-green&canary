@@ -1,0 +1,10 @@
+blue is the primary deployment, green we have to deploy the newer version and check if everything is right and change the service to the newer version and delete the primary deployment ie blue
+
+canary - after primary deployment when a newer version is created create with one or two pod and give the labels and selectors as the primary deployment so the service routes traffic to both primary version and newer version but the newer 
+version gets only minimum percentage.  if no errors and everythings goes fine then increase the replicas of the newer version and down the primary deployment replicas to 0 and delete the primary deployment.
+
+kubectl scale deployment --replicas=0 frontend
+deployment.apps/frontend scaled
+
+controlplane ~ ➜  kubectl scale deployment --replicas=5 frontend-v2
+deployment.apps/frontend-v2 scaled
