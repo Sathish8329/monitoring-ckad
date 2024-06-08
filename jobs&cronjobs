@@ -1,0 +1,43 @@
+jobs are used to run for simple task, emailing.  it does its taks and get existed, parellelism means it will run according to the number mentioned after that it will not restart.  
+cronjobs are used to schedule to run the job at a specified time just like linux crontab
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: parallel-job
+spec:
+  parallelism: 5
+  completions: 5
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        job-name: parallel-job
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: my-job-container
+        image: busybox
+        command: ["sh", "-c", "echo Hello Kubernetes! && sleep 30"]
+
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello-cronjob
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            job-name: hello-cronjob
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes CronJob!
