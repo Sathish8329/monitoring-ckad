@@ -1,0 +1,3 @@
+clusterip - by default clusterip is created, which is used to communicate within the cluster.
+NodePort - can be accessed externally using node ip and port number.
+LoadBalancer - cloud provider gives loadbalancer at the request of k8s and can be accessed externally.
