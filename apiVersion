@@ -5,4 +5,6 @@ apiVersion: apps/v1 # Deployment
 apiVersion: v1 #namespace
 apiVersion: v1 #ResourceQuota
 apiVersion: v1 #configmap
-apiVersion: batch/v1
+apiVersion: batch/v1 # job and cronjob
+apiVersion: v1 # service
+apiVersion: extension/v1beta1
