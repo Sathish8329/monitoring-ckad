@@ -1,6 +1,7 @@
 jobs are used to run for simple task, emailing.  it does its taks and get existed, parellelism means it will run according to the number mentioned after that it will not restart.  
 cronjobs are used to schedule to run the job at a specified time just like linux crontab
 
+backoffLimit:  number of times restart
 apiVersion: batch/v1
 kind: Job
 metadata:
