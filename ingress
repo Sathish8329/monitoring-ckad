@@ -1,0 +1,2 @@
+ingress controller is downloaded like nginx, traffiek etc and ingress.yaml is written which is like rule how the traffic goes.  With one ingress controller loadbalancer we can manage and access multiple services and domains.
+
