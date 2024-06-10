@@ -1,0 +1,38 @@
+incoming traffic from users are ingress
+from frontend to api is egress.  outgoing request to the app server is egress.
+
+always look from the pod respectives.  Network policy helps us to isolate the pod and make only the necessay traffic to be allowed.
+
+podselector:  pod that matches the labels.
+
+namespaceSelector:  pods that are in the namespace are allowed
+
+Pod Selector: Defines the group of pods the policy applies to using labels.
+Policy Types: Specifies whether the policy affects ingress traffic (into the pods) or egress traffic (out of the pods), or both.
+Ingress Rules: Define allowed inbound connections to the selected pods.
+Egress Rules: Define allowed outbound connections from the selected pods.
+Namespace Selector: Allows specifying rules based on labels of namespaces.
+IP Block: Allows specifying CIDR blocks for defining rules based on IP addresses.
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-specific-pods
+  namespace: my-namespace
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: frontend
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          role: backend
