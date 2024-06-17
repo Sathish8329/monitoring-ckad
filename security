@@ -37,3 +37,6 @@ kubectl config view --kubeconfig=myconfig
 to change user to get access of cluster
 
 kubectl config user-context produser@production 
+
+
+cp my-kube-config ~/.kube/config
