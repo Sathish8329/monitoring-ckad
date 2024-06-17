@@ -1,0 +1,28 @@
+authentication
+
+file - usernmae and password
+file -username and token
+certificates ca
+exteneral authentication providers - LDAP
+serviceaccount
+
+authorization
+
+RBAC authorization
+attribute-based access control (ABAC)
+node authorization
+webhook mode etc
+
+for machines serviceaccount
+
+admins and developers are users. 
+
+kubeconfig 
+
+has three files clusters, contexts, users
+
+CLUSTERS:  we have diferent clusters like production, staging, client wise.
+
+USERS:  Admins, developers who have access to clusters, admin user, dev user, prod user.
+
+contexts: Marry these clusters and users, which user access which cluster.  for eg admin@production context user admin to access production cluster.  
