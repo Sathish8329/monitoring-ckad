@@ -1,0 +1,42 @@
+Roles and RoleBindings
+Roles
+Scope: Roles are namespaced and define a set of permissions within a specific namespace.
+Usage: Use Roles to grant permissions within a single namespace.
+Definition: Includes apiGroups, resources, and verbs to specify what actions are allowed on which resources.
+Example Permissions: get, watch, list for resources like pods.
+RoleBindings
+Scope: RoleBindings are also namespaced and link a Role to a user, group, or service account within a namespace.
+Usage: Use RoleBindings to grant the permissions defined in a Role to specific users or groups within a namespace.
+Components:
+subjects: Specifies the users/groups/service accounts that the RoleBinding applies to.
+roleRef: Refers to the Role that contains the permissions.
+ClusterRoles and ClusterRoleBindings
+ClusterRoles
+Scope: ClusterRoles are cluster-wide and define a set of permissions that apply across all namespaces.
+Usage: Use ClusterRoles to grant permissions that span across multiple namespaces or the entire cluster.
+Definition: Similar to Roles but can also include non-namespaced resources (e.g., nodes, persistent volumes).
+Example Permissions: get, watch, list for resources like pods or nodes.
+ClusterRoleBindings
+Scope: ClusterRoleBindings are cluster-wide and link a ClusterRole to a user, group, or service account across the entire cluster.
+Usage: Use ClusterRoleBindings to grant the permissions defined in a ClusterRole to specific users or groups cluster-wide.
+Components:
+subjects: Specifies the users/groups/service accounts that the ClusterRoleBinding applies to.
+roleRef: Refers to the ClusterRole that contains the permissions.
+Steps to Create and Bind Roles and ClusterRoles
+Create Role/ClusterRole:
+
+Define the permissions you want to grant.
+Specify the apiGroups, resources, and verbs.
+Create RoleBinding/ClusterRoleBinding:
+
+Specify the subjects (users, groups, or service accounts).
+Refer to the appropriate Role or ClusterRole.
+Example Use Cases
+Namespace-Specific Access:
+
+Use Roles and RoleBindings to grant users access to resources within a specific namespace.
+Example: A developer needs to manage pods in the development namespace.
+Cluster-Wide Access:
+
+Use ClusterRoles and ClusterRoleBindings to grant users access to resources across all namespaces.
+Example: An admin needs to view logs of all pods in the cluster.
