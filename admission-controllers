@@ -1,0 +1,6 @@
+kube-apiserver -h | grep enable-admission-plugins
+or
+kubectl exec -it kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep 'enable-admission-plugins'
+to see the existing ones.
+
+grep enable-admission-plugins /etc/kubernetes/manifests/kube-apiserver.yaml
