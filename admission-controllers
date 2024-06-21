@@ -1,6 +1,17 @@
+This is the path of the  /etc/kubernetes/manifests/kube-apiserver.yaml
+here is where we do all the changes.
+
 kube-apiserver -h | grep enable-admission-plugins
+
 or
-kubectl exec -it kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep 'enable-admission-plugins'
-to see the existing ones.
+
+kubectl exec -it kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep 'enable-admission-plugins to see the existing ones.
 
 grep enable-admission-plugins /etc/kubernetes/manifests/kube-apiserver.yaml
+
+namespaceexist - is the default admission controller, which does not create namespace is that does not exist.
+
+namespaceautoprovision - needs to be enabled so that if a namespace does not exist, it creates it and creates the resources.
+
+to enable admission controllers use the below command
+    - --enable-admission-plugins=NodeRestriction,NamespaceAutoProvision
