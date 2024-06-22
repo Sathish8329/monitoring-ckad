@@ -15,3 +15,5 @@ namespaceautoprovision - needs to be enabled so that if a namespace does not exi
 
 to enable admission controllers use the below command
     - --enable-admission-plugins=NodeRestriction,NamespaceAutoProvision
+
+validating and mutating
