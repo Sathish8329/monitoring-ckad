@@ -1,4 +1,5 @@
 authentication
+cat /etc/kubernetes/pki/ca.crt | base64 | tr -d '\n'
 
 file - usernmae and password
 file -username and token
